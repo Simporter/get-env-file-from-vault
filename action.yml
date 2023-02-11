@@ -1,5 +1,5 @@
-name: 'Get env-file from Vault'
-description: 'Get secrets from Vault and writes to a file'
+name: 'Generate .env file from Hashicorp Vault'
+description: 'Get secrets from Vault and write to a .env file'
 
 branding:
     icon: "bar-chart-2"
@@ -61,3 +61,4 @@ runs:
         | jq -r ".data.data" \
         | jq -r 'keys[] as $k | "\($k)=\(.[$k])"' \
         > ${{ inputs.ENV_FILE_NAME }}
+
