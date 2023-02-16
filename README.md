@@ -13,7 +13,7 @@ jobs:
     steps:
       # ...
       - name: Get env file
-        uses: n4mespace/get-env-file-from-vault-action@v1
+        uses: Simporter/get-env-file-from-vault@v1.0.2
         with:
           VAULT_ADDR: https://vault.mycompany.com:8200
           VAULT_USERNAME: ${{ secrets.VAULT_USERNAME }}
