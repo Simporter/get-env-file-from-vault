@@ -33,11 +33,10 @@ runs:
    - name: Install Hashicorp Vault
      shell: bash
      run: |
-        curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
-        sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
-        sudo apt-get update || true
-        sudo apt-get install --reinstall -y vault
-        sudo setcap cap_ipc_lock= /usr/bin/vault
+        curl -S -O https://releases.hashicorp.com/vault/1.19.5/vault_1.19.5_linux_amd64.zip
+        unzip -u vault_1.19.5_linux_amd64.zip -d .
+        chmod +x vault
+        mv vault /usr/local/bin
 
    - name: Login to Hashicorp Vault
      shell: bash
